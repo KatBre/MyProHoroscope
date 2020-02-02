@@ -14,7 +14,14 @@ public class HoroscopeExtractor {
         if (horoscopeMatcher.find()) {
             foundText = horoscopeMatcher.group();
         }
-        return foundText;
+        return clearText(foundText);
+    }
+
+
+    private static String clearText(String rawText) {
+        return rawText
+                .replace("<p class=\"lead\">", "")
+                .replace("</p>", "");
     }
 }
 
